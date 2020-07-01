@@ -369,13 +369,12 @@ def prod_int_part(n):  # n the integer to be partitioned in products
 
 
 def posNeg(arr):
-
     pos = []
     neg = []
     for i in range(len(arr)):
-        if arr[i]>0:
+        if arr[i] > 0:
             pos.append(arr[i])
-        elif arr[i]<0:
+        elif arr[i] < 0:
             neg.append(-arr[i])
     if len(pos) > len(neg):
         a = list(filter(lambda x: x not in neg, pos))
@@ -385,6 +384,20 @@ def posNeg(arr):
         return -a[0]
 
 
+def reverse_bits(n):
+    bins = bin(n)[2:]
+    rever = str(bins)[::-1]
+    return int(rever, 2)
+    # return int(str(bin(n)[2:])[::-1], 2)
 
 
-print(posNeg([-3, 1, 2, 3, -1, 4, -2]))
+def any_odd(x):
+    z = str(bin(x))[2:][::-1]
+    answer = False
+    for i in range(0, len(z)):
+        if z[i] == "1" and i % 2 == 1:
+            answer = True
+    return answer
+
+
+print(any_odd(2))
