@@ -444,7 +444,29 @@ def solving_string(st: str) -> bool:
     return True
 
 
+def printer_error(s: str) -> str:
+    n = 0
+    for i in range(len(s)):
+        print(ord(s[i]))
+        if ord(s[i]) > 109:
+            n += 1
+    return str(n) + '/' + str(len(s))
 
+
+def mxdiflg(a1: list, a2: list) -> int:
+    if len(a1) == 0 or len(a2) == 0:
+        return -1
+
+    max_a1 = max([len(x) for x in a1])
+    min_a1 = min([len(x) for x in a1])
+
+    max_a2 = max([len(x) for x in a2])
+    min_a2 = min([len(x) for x in a2])
+
+    return max(max_a1 - min_a2, max_a2 - min_a1)
+
+
+print(mxdiflg(['aaa', 'bb', 'cccc', 'd'], ['aaaaaa', 'a', 'aa']))
 
 # # TODO do zrobienia
 # def move_zeros2(array):
