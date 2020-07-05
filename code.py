@@ -1,3 +1,6 @@
+import numpy
+
+
 def halving_sum(n):
     result = 0
     while n >= 1:
@@ -400,4 +403,57 @@ def any_odd(x):
     return answer
 
 
-print(any_odd(2))
+def move_zeros(array):
+    string = []
+    index = []
+
+    for i in range(len(array)):
+        if type(array[i]) == 'str':
+            continue
+        else:
+            string.append(str(array[i]))
+
+    for i in range(len(string)):
+        if string[i] == '0':
+            index.append(i)
+
+    arr = numpy.array(array)
+    new_arr = numpy.delete(arr, index)
+    new = numpy.ndarray.tolist(new_arr)
+
+    for i in range(len(index)):
+        new.append(0)
+
+    return new
+
+
+def change(x: float) -> int:
+    return int(x)
+
+
+def solving_string(str: str) -> bool:
+    if len(str) == 1:
+        return True
+
+    res = ''.join(sorted(str))
+
+    for i in range(0, len(res) - 1):
+        if ord(res[i]) + 1 != ord(res[i + 1]):
+            return False
+
+    return True
+
+
+print(solving_string('b'))
+
+# # TODO do zrobienia
+# def move_zeros2(array):
+#
+#     zero = []
+#     for x in array:
+#         if x == 0 and type(x) != bool:
+#             zero.append(x)
+#     print(zero)
+#
+#
+# move_zeros2(["a", 1.0, 0.0, False, 0, 1,  [], ])
