@@ -431,11 +431,11 @@ def change(x: float) -> int:
     return int(x)
 
 
-def solving_string(str: str) -> bool:
-    if len(str) == 1:
+def solving_string(st: str) -> bool:
+    if len(st) == 1:
         return True
 
-    res = ''.join(sorted(str))
+    res = ''.join(sorted(st))
 
     for i in range(0, len(res) - 1):
         if ord(res[i]) + 1 != ord(res[i + 1]):
@@ -444,7 +444,7 @@ def solving_string(str: str) -> bool:
     return True
 
 
-print(solving_string('b'))
+
 
 # # TODO do zrobienia
 # def move_zeros2(array):
