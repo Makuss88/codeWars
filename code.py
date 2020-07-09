@@ -466,16 +466,65 @@ def mxdiflg(a1: list, a2: list) -> int:
     return max(max_a1 - min_a2, max_a2 - min_a1)
 
 
-print(mxdiflg(['aaa', 'bb', 'cccc', 'd'], ['aaaaaa', 'a', 'aa']))
+def move_zeros2(array: list):
+    first = []
+    end = []
+    for x in array:
+        if x != 0 or type(x) == bool:
+            first.append(x)
+        else:
+            end.append(int(x))
 
-# # TODO do zrobienia
-# def move_zeros2(array):
-#
-#     zero = []
-#     for x in array:
-#         if x == 0 and type(x) != bool:
-#             zero.append(x)
-#     print(zero)
-#
-#
-# move_zeros2(["a", 1.0, 0.0, False, 0, 1,  [], ])
+    first.extend(end)
+    return first
+
+
+def catch_sign_change(lst: list) -> int:
+    if len(lst) == 0:
+        return 0
+
+    count = 0
+    if lst[0] >= 0:
+        flag = '+'
+    else:
+        flag = '-'
+
+    for i in range(1, len(lst)):
+        if lst[i] >= 0:
+            flag2 = '+'
+        else:
+            flag2 = '-'
+
+        if flag != flag2:
+            count += 1
+            flag = flag2
+
+    return count
+
+
+def evaporator(content: float, evap_per_day: float, threshold: float) -> float:
+    days = 0
+    current = 100
+    percent = 1 - evap_per_day / 100.0
+    while current > threshold:
+        current *= percent
+        days += 1
+    return days
+
+
+def find_outlier(integers):
+    odd = 0
+    even = 0
+    add_number = 1
+    for i in range(3):
+        if integers[i] % 2 == 0:
+            even += 1
+        else:
+            odd += 1
+
+    if even < odd:
+        add_number = 0
+
+    for i in integers:
+        if (i + add_number) % 2 == 0:
+            return i
