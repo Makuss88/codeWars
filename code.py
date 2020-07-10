@@ -528,3 +528,34 @@ def find_outlier(integers):
     for i in integers:
         if (i + add_number) % 2 == 0:
             return i
+
+
+def find_multiples(integer, limit):
+    return list(i for i in range(1, limit + 1) if i % integer == 0)
+
+
+def build_palindrome(s):
+    if s == s[::-1]:
+        return s
+
+    count_left = -1
+    count_right = -1
+
+    for i in range(0, len(s)):
+        if list(s[0:i]) == list(reversed(s[0:i])):
+            count_left = i
+
+    for i in range(0, len(s) - 1):
+        if list(s[i:]) == list(reversed(s[i:])):
+            count_right = len(s) - i
+            break
+
+    if count_left > count_right:
+        rev = s[count_left:]
+        return rev[::-1] + s
+    else:
+        rev = s[0:len(s)-count_right]
+        return s + rev[::-1]
+
+
+

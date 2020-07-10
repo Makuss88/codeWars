@@ -11,7 +11,7 @@ def sort_shirt(size: list):
         elif size[i][-1] == 'L':
             dic[size[i]] = +len(size[i])
 
-    dic2 = {k: v for k, v in sorted(dic.items(), key=lambda item: item[1])}
+    dic2 = {k: v for k, v in sorted(dic.items(), key=lambda item: item[1]) if -3 < v < 3}
 
     return list(dic2.keys())
 
