@@ -512,7 +512,7 @@ def evaporator(content: float, evap_per_day: float, threshold: float) -> float:
     return days
 
 
-def find_outlier(integers):
+def find_outlier(integers: list) -> int:
     odd = 0
     even = 0
     add_number = 1
@@ -530,11 +530,11 @@ def find_outlier(integers):
             return i
 
 
-def find_multiples(integer, limit):
+def find_multiples(integer: int, limit: int) -> list:
     return list(i for i in range(1, limit + 1) if i % integer == 0)
 
 
-def build_palindrome(s):
+def build_palindrome(s: str) -> str:
     if s == s[::-1]:
         return s
 
@@ -554,8 +554,27 @@ def build_palindrome(s):
         rev = s[count_left:]
         return rev[::-1] + s
     else:
-        rev = s[0:len(s)-count_right]
+        rev = s[0:len(s) - count_right]
         return s + rev[::-1]
 
 
+def testing(s: str) -> str:
+    s = s.upper().split(';')
+    array = []
 
+    for i in s:
+        i = i.split(':')
+        string = '(' + i[1] + ', ' + i[0] + ')'
+        array.append(string)
+
+    array.sort()
+
+    output = ""
+
+    for j in array:
+        output += j
+
+    return output
+
+print(testing(
+    "Anna:Wahl;Grace:Gates;James:Russell;Elizabeth:Rudd;Victoria:STAN;Jacob:Wahl;Alex:Wahl;Antony:Gates;Alissa:Meta;Megan:Bell;Amandy:Stan;Anna:Steve"))
