@@ -576,5 +576,17 @@ def testing(s: str) -> str:
 
     return output
 
-print(testing(
-    "Anna:Wahl;Grace:Gates;James:Russell;Elizabeth:Rudd;Victoria:STAN;Jacob:Wahl;Alex:Wahl;Antony:Gates;Alissa:Meta;Megan:Bell;Amandy:Stan;Anna:Steve"))
+
+def reverse(arr):  #
+
+    result = []
+
+    for i in arr[::-1]:
+        if i not in result:
+            result.append(i)
+
+    return result[::-1]
+
+
+def is_divisible(n, x, y):
+    return n % x == 0 and n % y == 0
