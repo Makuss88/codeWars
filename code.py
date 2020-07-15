@@ -577,8 +577,7 @@ def testing(s: str) -> str:
     return output
 
 
-def reverse(arr):  #
-
+def reverse(arr: list) -> list:
     result = []
 
     for i in arr[::-1]:
@@ -588,5 +587,70 @@ def reverse(arr):  #
     return result[::-1]
 
 
-def is_divisible(n, x, y):
+def is_divisible(n: int, x: int, y: int) -> bool:
     return n % x == 0 and n % y == 0
+
+
+def who_is_paying(name: str) -> list:
+    result = [name]
+
+    if len(name) > 2:
+        result.append(name[0:2])
+
+    return result
+
+
+def check_exam(arr1: list, arr2: list) -> int:
+    result = 0
+    for i in range(len(arr1)):
+        if arr1[i] == arr2[i]:
+            result += 4
+        elif arr1[i] != arr2[i] and len(arr2[i]) > 0:
+            result -= 1
+
+    if result < 0:
+        return 0
+    return result
+
+
+def generate_integers(m: int, n: int) -> list:
+    result = []
+    for i in range(m, n + 1):
+        result.append(i)
+    return result
+
+
+def greet(name):
+    if name:
+        return 'hello {}!'.format(name)
+
+
+def scrabble_score(st: str) -> int:
+    points = 0
+    plus1 = ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T']
+    plus2 = ["D", 'G']
+    plus3 = ['B', 'C', 'M', 'P']
+    plus4 = ['F', 'H', 'V', 'W', 'Y']
+    plus5 = ['K']
+    plus8 = ['J', 'X']
+    plus0 = ['Q', 'Z']
+
+    string = st.upper().replace(' ', '')
+
+    for i in string:
+        if i in plus1:
+            points += 1
+        elif i in plus2:
+            points += 2
+        elif i in plus3:
+            points += 3
+        elif i in plus4:
+            points += 4
+        elif i in plus5:
+            points += 5
+        elif i in plus8:
+            points += 8
+        elif i in plus0:
+            points += 10
+
+    return points
