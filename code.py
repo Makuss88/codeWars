@@ -654,3 +654,10 @@ def scrabble_score(st: str) -> int:
             points += 10
 
     return points
+
+
+def solution_short_long_short(a: str, b: str) -> str:
+    if len(a) > len(b):
+        return b + a + b
+    else:
+        return a + b + a
